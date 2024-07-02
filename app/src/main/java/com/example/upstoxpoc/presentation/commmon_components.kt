@@ -82,6 +82,7 @@ fun ShowLoading(modifier: Modifier = Modifier) {
         }
     }
 }
+
 @Composable
 fun Chip(
     category: FilterCategory,

@@ -63,7 +63,10 @@ import com.example.upstoxpoc.presentation.viewmodel.MainViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun DashBoardScreen(navHostController: NavHostController, mainViewModel: MainViewModel = hiltViewModel()) {
+fun DashBoardScreen(
+    navHostController: NavHostController,
+    mainViewModel: MainViewModel = hiltViewModel()
+) {
     var functionCalled by remember { mutableStateOf(false) }
     var showBottomSheet by remember { mutableStateOf(false) }
     val selectedCategories = remember { mutableStateListOf<String>() }
@@ -134,7 +137,7 @@ fun CallApi(mainViewModel: MainViewModel) {
     ) {
         SpacerWidth(30.dp)
 
-        LaunchedEffect(Unit){
+        LaunchedEffect(Unit) {
             mainViewModel.callCryptoApi()
         }
         when (val result = mainViewModel.response.value) {
@@ -169,6 +172,7 @@ fun CallApi(mainViewModel: MainViewModel) {
                     )
                 )
             }
+
             is ApiState.Empty -> {
                 //This is Ideal Case
             }
@@ -232,6 +236,7 @@ fun ListItem(cryptoItem: CryptoItem) {
         }
     }
 }
+
 @Composable
 fun MyApp(content: @Composable () -> Unit) {
     MaterialTheme {
@@ -240,6 +245,7 @@ fun MyApp(content: @Composable () -> Unit) {
         }
     }
 }
+
 @Composable
 fun ShowListPreview(mainViewModel: MainViewModel, list: List<CryptoItem>) {
     val viewState by mainViewModel.viewState.collectAsState()
@@ -273,9 +279,4 @@ fun ShowListPreview(mainViewModel: MainViewModel, list: List<CryptoItem>) {
             }
         }
     }
-}
-
-@Composable
-fun CryptoList(list: List<CryptoItem>) {
-
 }

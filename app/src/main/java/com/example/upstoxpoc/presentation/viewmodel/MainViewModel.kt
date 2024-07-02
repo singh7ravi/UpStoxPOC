@@ -34,7 +34,6 @@ class MainViewModel
     private var _originalList = listOf<CryptoItem>()
 
     fun callCryptoApi() = viewModelScope.launch {
-      //  delay(2000)
         mainRepository.getCryptoCoins()
             .onStart {
                 response.value = ApiState.Loading

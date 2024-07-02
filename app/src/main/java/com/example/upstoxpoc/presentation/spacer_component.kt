@@ -10,7 +10,7 @@ import androidx.compose.ui.unit.dp
 
 @Composable
 fun SpacerWidth(
-    width:Dp = 10.dp
+    width: Dp = 10.dp
 ) {
     Spacer(modifier = Modifier.width(width))
 }
@@ -18,7 +18,7 @@ fun SpacerWidth(
 
 @Composable
 fun SpacerHeight(
-    height:Dp = 10.dp
+    height: Dp = 10.dp
 ) {
     Spacer(modifier = Modifier.height(height))
 }
